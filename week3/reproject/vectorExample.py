@@ -50,7 +50,7 @@ def reprojectData(lon,lat,outEPSG):
   inProj=Proj("epsg:4326")
   outProj=Proj("epsg:"+str(outEPSG))
   # reproject data
-  x,y=transform(inProj, outProj, lon, lat)
+  x,y=transform(inProj, outProj,lat,lon)
   return(x,y)
 
 
