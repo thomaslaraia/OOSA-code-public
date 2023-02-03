@@ -84,7 +84,7 @@ if __name__ == "__main__":
   '''
   cmdargs=readCommands()
   # read data in to numpy arrays. Here i have pre-sorted the data
-  lon,lat=np.loadtxt(cmdargs.inName,unpack=True,usecols=(0,1),dtype=float,comments='#',delimiter=' ')
+  lon,lat=np.loadtxt(cmdargs.inName,unpack=True,usecols=(0,1),dtype=float,comments='#',delimiter=' ',skiprows=1)
 
   # reproject
   x,y=reprojectData(lon,lat,cmdargs.epsg)
