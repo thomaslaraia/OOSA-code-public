@@ -38,6 +38,7 @@ def readCommands():
 def generaliseDP(iS,iE,x,y,tol,nodeIndices):  # note that I have renamed the start and end indices
   '''
   The line generalisation function
+  Solved by recursion
   '''
 
   # check that there are sufficient points here. Once they are adjacent, stop
@@ -62,6 +63,42 @@ def generaliseDP(iS,iE,x,y,tol,nodeIndices):  # note that I have renamed the sta
     generaliseDP(iS,nodeInd,x,y,tol,nodeIndices)
     # repeat for the array to the right of the split
     generaliseDP(nodeInd,iE,x,y,tol,nodeIndices)
+
+
+#def _rdp_iter(M, start_index, last_index, epsilon, dist=pldist):
+#  '''
+#  this is not working yet
+#
+#  The line generalisation function
+#  Solved by looping, Solution taken from:
+#  https://github.com/fhirschmann/rdp/blob/master/rdp/__init__.py
+#  '''
+#  stk = []
+#  stk.append([start_index, last_index])
+#  global_start_index = start_index
+#  indices = np.ones(last_index - start_index + 1, dtype=bool)
+#
+#  while stk:
+#      start_index, last_index = stk.pop()
+#
+#      dmax = 0.0
+#      index = start_index
+#
+#      for i in xrange(index + 1, last_index):
+#          if indices[i - global_start_index]:
+#              d = dist(M[i], M[start_index], M[last_index])
+#              if d > dmax:
+#                  index = i
+#                  dmax = d
+#
+#      if dmax > epsilon:
+#          stk.append([start_index, index])
+#          stk.append([index, last_index])
+#      else:
+#          for i in xrange(start_index + 1, last_index):
+#              indices[i - global_start_index] = False
+#
+#  return indices
 
 
 #####################################
