@@ -166,7 +166,7 @@ This folder contains some starter code to handle HDF5 formatted data from the LV
     lvisClass.py -   The base class to read LVIS data into RAM
     lvisExample.py - An example of using lvisClass.py
     processLVIS.py - Inherits from lvisClass.py and adds methods to extract ground elevation
-
+    lvisCompleteExample.py - example solutions for the week 4 tasks
 
 ### geotiff
 
