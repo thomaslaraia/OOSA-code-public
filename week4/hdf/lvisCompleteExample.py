@@ -44,7 +44,7 @@ class plotLVIS(lvisGround):
     inProj=Proj("epsg:4326")
     outProj=Proj("epsg:"+str(outEPSG))
     # reproject data
-    self.x,self.y=transform(inProj, outProj, self.lon, self.lat)
+    self.x,self.y=transform(inProj, outProj, self.lat, self.lon)
 
 
   def reprojectBounds(self,outEPSG):
