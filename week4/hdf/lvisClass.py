@@ -96,7 +96,6 @@ class lvisData(object):
     '''
     self.z=np.empty((self.nWaves,self.nBins))
     for i in range(0,self.nWaves):    # loop over waves
-      res=(self.lZ0[i]-self.lZN[i])/self.nBins
       self.z[i]=np.linspace(self.lZ0[i],self.lZN[i],self.nBins)   # returns an array of floats
 
 
