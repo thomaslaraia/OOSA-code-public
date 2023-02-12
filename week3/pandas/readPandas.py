@@ -31,5 +31,5 @@ if __name__=="__main__":
   print("mean time",sortedData['time'].mean())
 
   # bounds
-  print("x bounds",sortedData['x'].min(),sortedData['x'].max())
+  print("x bounds",sortedData['lon'].min(),sortedData['lat'].max())
 
