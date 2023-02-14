@@ -13,6 +13,11 @@ import matplotlib.pyplot as plt
 import argparse
 import numpy as np
 
+# to import the tiff function from ../geotiff/
+from sys import path
+path.append("../geotiff")
+from tiffExample import writeTiff
+
 
 ##########################################
 
@@ -74,6 +79,13 @@ class plotLVIS(lvisGround):
     plt.close()
     print("Graph to",outName)
 
+  def writeDEM(self,res,outName):
+    '''Write LVIS ground elevation data to a geotiff'''
+
+    # call function from tiffExample.py
+    writeTiff(self.zG,self.x,self.y,res,filename=outName,epsg=3031)
+    return
+
 
 ##########################################
 
@@ -107,13 +119,13 @@ if __name__=="__main__":
       # read in all data within our spatial subset
       lvis=plotLVIS(filename,minX=x0,minY=y0,maxX=x1,maxY=y1)
 
-      # set elevation, though this is not used here, but would be if you
-      lvis.setElevations()    # were making a DTM
-
-      # reproject the data. This is also not used here, but would be if you
-      lvis.reprojectLVIS(3031)    # were making a DTM
-
       # plot up some waveforms using your new method
       lvis.plotWaves(step=int(lvis.nWaves/100),outRoot=outRoot+".x."+str(x0)+".y."+str(y0))  # this will print 100 waveforms
                                                                                 # updating the filename as it goes
+      # to make a DEM
+      lvis.setElevations() # set elevation
+      lvis.reprojectLVIS(3031) # reproject the data to local UTM zone
+      lvis.estimateGround()    # find ground elevations
+      outName="lvisDEM.x."+str(x0)+".y."+str(y0)+".tif"  # set output filename
+      lvis.writeDEM(100,outName)                         # write data to a DEM at 100 m resolution
 
