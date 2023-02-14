@@ -83,6 +83,7 @@ class plotLVIS(lvisGround):
     '''Write LVIS ground elevation data to a geotiff'''
 
     # call function from tiffExample.py
+    print("res",res)
     writeTiff(self.zG,self.x,self.y,res,filename=outName,epsg=3031)
     return
 
@@ -117,13 +118,16 @@ if __name__=="__main__":
       print("Tile between",x0,y0,"to",x1,y1)
 
       # read in all data within our spatial subset
-      lvis=plotLVIS(filename,minX=x0,minY=y0,maxX=x1,maxY=y1)
+      lvis=plotLVIS(filename,minX=x0,minY=y0,maxX=x1,maxY=y1,setElev=True)
+
+      # check that it contains some data
+      if(lvis.nWaves==0):
+        continue
 
       # plot up some waveforms using your new method
       lvis.plotWaves(step=int(lvis.nWaves/100),outRoot=outRoot+".x."+str(x0)+".y."+str(y0))  # this will print 100 waveforms
                                                                                 # updating the filename as it goes
-      # to make a DEM
-      lvis.setElevations() # set elevation
+      # to make a DEM as a geotiff
       lvis.reprojectLVIS(3031) # reproject the data to local UTM zone
       lvis.estimateGround()    # find ground elevations
       outName="lvisDEM.x."+str(x0)+".y."+str(y0)+".tif"  # set output filename
