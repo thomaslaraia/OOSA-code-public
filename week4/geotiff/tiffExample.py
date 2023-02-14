@@ -30,15 +30,12 @@ def writeTiff(data,x,y,res,filename="lvis_image.tif",epsg=4326):
   nX=int((maxX-minX)/res+1)
   nY=int((maxY-minY)/res+1)
 
-  print('bounds',nX,nY)
-
   # pack in to array
   imageArr=np.full((nY,nX),-999.0)        # make an array of missing data flags
 
   # calculate the raster pixel index in x and y
   xInds=np.array(np.floor((x-np.min(x))/res),dtype=int)   # need to force to int type
   yInds=np.array(np.floor((np.max(y)-y)/res),dtype=int)
-  print(xInds)
   # floor rounds down. y is from top to bottom
 
   # this is a simple pack which will assign a single footprint to each pixel

@@ -83,7 +83,6 @@ class plotLVIS(lvisGround):
     '''Write LVIS ground elevation data to a geotiff'''
 
     # call function from tiffExample.py
-    print("res",res)
     writeTiff(self.zG,self.x,self.y,res,filename=outName,epsg=3031)
     return
 
