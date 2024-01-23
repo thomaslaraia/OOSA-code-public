@@ -86,3 +86,16 @@ Contains some text data files for use in this week's exercises.
 Contains a piece of code demonstrating the suggested use of document string comments.
 
 
+
+
+# Dependencies
+
+The code in these repositories make use of the following packages and is all in python3:
+
+    numpy
+    matplotlib.pylot
+    h5py
+    pyproj
+    gdal
+    rasterio
+
