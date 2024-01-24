@@ -69,6 +69,16 @@ Contains two example python files, which can be used to alter the behaviour of a
     commandExample.py: Minimum workable example of a command line
     commandLineIllus.py: Illustrates the common command
 
+The options for commandLineIllus.py are:
+
+    -h, --help            show this help message and exit
+    --input INNAME        Input filename Default=test.txt
+    --lat LAT             Latitude in degrees Default = 5
+    --max_vcf MAXVCF      Maximum VCF value to use Default = 100
+    --useSnow             Use snow switch Default = False
+    -p [POW_BEAM_LIST ...], --power_beams [POW_BEAM_LIST ...] Track numbers of power beams Default = 5 and 6
+
+
 
 ### objects
 
@@ -96,6 +106,50 @@ Contains a suggested answer for week 2's algorithm. A suggested method using bot
     makeData.py: makes data for testing algorithms
     randomWages.py: generates random wage data for testing algorithms
 
+
+
+## Week 3
+
+Week 3 covers
+
+***Aspects***
+* Geospatial packages: pyproj and gdal
+* A note on function input/output
+* Function fitting
+* A mention of pandas
+
+***Algorithm***
+* Douglas-Peucker line generalization
+
+
+### docu\_strings
+
+Contains examples of document strings.
+
+
+### reproject
+
+Shows an example of using the dgal package to reproject raster or vector data.
+
+
+### function\_fit
+
+Shows an example of fitting a function to data.
+
+
+### pointer\_reference
+
+Demonstrates the difference between variables that point to an array and copying a whole array.
+
+
+### pandas
+
+Shows an example of reading data into a pandas object.
+
+
+### line\_distance
+
+A function to find the orthogonal distance between a line and a point, to be used in the Douglas-Peucker line generalization algorithm.
 
 
 
