@@ -15,8 +15,7 @@ import numpy as np
 if __name__ == "__main__":
   '''Main block'''
 
-  #dir='/geos/netdata/oosa/week3/sentinel-2/L2A_T30VVH_A020126_20210112T113447_2021-01-12'
-  dir='/Users/dougal/data/teaching/key_meth/week2/sentinel-2/L2A_T30VVH_A020126_20210112T113447_2021-01-12'
+  dir='/geos/netdata/oosa/week3/sentinel-2/L2A_T30VVH_A020126_20210112T113447_2021-01-12'
   fileList=glob(dir+"/*"+".jp2")
 
   # NDVI at 10 m res is Band 4 and band 8. Search for those band
