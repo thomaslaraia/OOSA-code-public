@@ -4,7 +4,7 @@ Example of reprojecting
 a raster
 '''
 
-from gdal import Warp
+from osgeo.gdal import Warp
 
 
 #########################
