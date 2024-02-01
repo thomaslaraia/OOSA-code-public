@@ -152,7 +152,38 @@ Shows an example of reading data into a pandas object.
 
 A function to find the orthogonal distance between a line and a point, to be used in the Douglas-Peucker line generalization algorithm.
 
+### dp-line-general
 
+Contains an example solution for the Douglas-Peucker line generalisation.
+
+
+## Week 4
+
+Week 4 covers
+
+***Aspects***
+* Geospatial data formats; geotiff
+* Raster-vector calculations
+
+***Algorithm***
+* Batch processing: Raster-vector intersection
+* Raster operations: Focal functions
+
+There are two folders, hdf and geotiff
+
+
+### hdf
+
+This folder contains some starter code to handle HDF5 formatted data from the LVIS lidar.
+
+    lvisClass.py -   The base class to read LVIS data into RAM
+    lvisExample.py - An example of using lvisClass.py
+    processLVIS.py - Inherits from lvisClass.py and adds methods to extract ground elevation
+    lvisCompleteExample.py - example solutions for the week 4 tasks
+
+### geotiff
+
+An example script to pass an array of x and y coordinates along with an array of data (such as ground elevation from processLVIS) and create a geotiff.
 
 
 
