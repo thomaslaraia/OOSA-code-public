@@ -181,6 +181,12 @@ This folder contains some starter code to handle HDF5 formatted data from the LV
     processLVIS.py - Inherits from lvisClass.py and adds methods to extract ground elevation
     lvisCompleteExample.py - example solutions for the week 4 tasks
 
+Takes the following input parameters
+
+    --input INNAME     LVIS input filename
+    --outRoot OUTROOT  Output filename root to use with graphs and DEMs produced.
+
+
 ### geotiff
 
 An example script to pass an array of x and y coordinates along with an array of data (such as ground elevation from processLVIS) and create a geotiff.
