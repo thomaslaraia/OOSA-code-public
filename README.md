@@ -162,14 +162,7 @@ Contains an example solution for the Douglas-Peucker line generalisation.
 Week 4 covers
 
 ***Aspects***
-* Geospatial data formats; geotiff
-* Raster-vector calculations
-
-***Algorithm***
-* Batch processing: Raster-vector intersection
-* Raster operations: Focal functions
-
-There are two folders, hdf and geotiff
+* Geospatial data formats; HDF5
 
 
 ### hdf
@@ -187,10 +180,41 @@ Takes the following input parameters
     --outRoot OUTROOT  Output filename root to use with graphs and DEMs produced.
 
 
-### geotiff
 
-An example script to pass an array of x and y coordinates along with an array of data (such as ground elevation from processLVIS) and create a geotiff.
+## Week 5
 
+Week 5 covers
+
+***Aspects***
+* Geopandas
+* Raster-vector calculations
+* Machine learning
+
+***Algorithm***
+* Batch processing: Raster-vector intersection
+
+
+### Geopandas
+
+A simple example of reading in a list of points, reprojecting and writing to a shapefile is contained in:
+
+    week5/geopandas/geopandasExample.py
+
+The command line options are:
+
+    --inEpsg INEPSG    Input EPSG code
+    --outEpsg OUTEPSG  Output EPSG code
+    --input INNAME     Input filename
+    --output OUTNAME   Output filename
+
+
+### Raster-vector calculations
+
+An example script to pass an array of x and y coordinates along with an array of data (such as ground elevation from processLVIS) and create a geotiff. The script is in:
+
+    week5/geotiff/tiffExample.py
+
+This contains a function, which must be called to rasterise data and write a geotiff. Note that some newer packages offer the same functionality.
 
 
 
