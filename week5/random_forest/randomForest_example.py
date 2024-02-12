@@ -101,8 +101,6 @@ if __name__=='__main__':
   # validate the model using the validation data
   print('Add validation code here')
 
-  # read in the second file and predict the data
-
 
 #################################################
 
