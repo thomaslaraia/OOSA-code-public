@@ -186,21 +186,21 @@ Takes the following input parameters
 Week 5 covers
 
 ***Aspects***
-* Geopandas
-* Raster-vector calculations
-* Machine learning
+* More geospatial packages: Geopandas
+* RAM management
+* A brief introduction to machine learning
 
 ***Algorithm***
-* Batch processing: Raster-vector intersection
+* Machine learning; getting data into the machine
 
 
-### Geopandas
+### geopandas
 
-A simple example of reading in a list of points, reprojecting and writing to a shapefile is contained in:
+This folder contains an example of using geopandas to read a csv file containing geographic data, sorting and reprojecting it. Note that it makes use of the **shapely** package to define the geometry type within the geopandas array. Here **Point** is used as this is vector data. This stacking of packages can be difficult to follow, but the answers can be found on the documentation and stackoverflow. The latter is sometimes more helpful for specific tasks, as the official documentation shows all possible uses.
 
-    week5/geopandas/geopandasExample.py
+   week5/geopandas/geopandasExample.py
 
-The command line options are:
+This script has the following command line options:
 
     --inEpsg INEPSG    Input EPSG code
     --outEpsg OUTEPSG  Output EPSG code
@@ -208,13 +208,44 @@ The command line options are:
     --output OUTNAME   Output filename
 
 
-### Raster-vector calculations
+### RAM management
 
-An example script to pass an array of x and y coordinates along with an array of data (such as ground elevation from processLVIS) and create a geotiff. The script is in:
+To illstrate RAM management, a stack of rasters will be processed. Some starter code is available in:
 
-    week5/geotiff/tiffExample.py
+    week5/rasters/readTiff.py
 
-This contains a function, which must be called to rasterise data and write a geotiff. Note that some newer packages offer the same functionality.
+This uses GDAL to read in a raster file, has a space to perform some data manipulation, and writes out the result.
+
+
+### Function fitting
+
+This section gives examples for linear and polynomial fitting, to illustrate the components that go into machine learning. The code includes
+
+    linearFit.py           # linear fitting example
+    linearFit_answer.py    # linear fitting wth task answers
+    polyFit.py             # polynomial fitting example
+    polyFit_answer.py      # polynomial fitting with task answers
+    aic_answer.py          # polynomial fitting with AIC task answers
+
+
+### Machine learning
+
+A simple example is available in
+
+    week5/random_forest/randomForest_example.py
+
+It has the following options:
+
+    --input NAMEN         Input data table
+    --trainFrac TRAINFRAC Fraction of data to use for training
+    --nTrees N_ESTIMATORS Number of trees
+    --max_depth MAX_DEPTH Maximum branch depth
+
+
+A more complex example is available that brings together all parts of the course. Note that this is not working as yet due to a bug in the data reading. This code is taken from Euan Mitchell's [dissertation repository](https://github.com/euanmitchell/dissertation)
+
+    week5/random_forest/randomForestLaSelva.py
+
 
 
 
