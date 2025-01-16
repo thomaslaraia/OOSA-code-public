@@ -15,7 +15,7 @@ import numpy as np
 
 # to import the tiff function from ../geotiff/
 from sys import path
-path.append("../geotiff")
+path.append("../../week5/geotiff")
 from tiffExample import writeTiff
 
 
