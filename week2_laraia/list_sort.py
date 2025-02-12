@@ -1,8 +1,8 @@
 import argparse
 
-parser = argparse.ArgumentParser()
-parser.add_argument("n", nargs="?", type=int, default=10)
-args = parser.parse_args()
+#parser = argparse.ArgumentParser()
+#parser.add_argument("n", nargs="?", type=int, default=10)
+#args = parser.parse_args()
 
 import time
 import numpy as np
@@ -27,7 +27,7 @@ def sort_array(array):
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("n", nargs="?", type=int, default=10)
+    parser.add_argument("n", nargs="?", type=int, default=10, help="length of array")
     args = parser.parse_args()
 
     A = generate_random_array(args.n)
