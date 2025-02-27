@@ -20,26 +20,28 @@ for i, f in enumerate(filenames):
   data.append(bandLayer)
 
 ndvi = np.divide(data[1]-data[0], data[1]+data[0], where=data[1]+data[0]!=0)
+ndvi_scaled = (ndvi*10000).astype(np.int16)
 
-outName = 'sentinel2.ndvi.tif'
+outName = '../../sentinel2.ndvi.tif'
 
 if args.epsg != -1 and dataset.crs.to_epsg() != args.epsg:
     target_crs = f'EPSG:{args.epsg}'
+
     transform, width, height = calculate_default_transform(
-        dataset.crs, target_crs, dataset.width, dataset.height, *dataset.bounds)
+        dataset.crs, target_crs, dataset.width, dataset.height,
+        *dataset.bounds)
         
     new_metadata = dataset.meta.copy()
     new_metadata.update({
         'crs': target_crs,
         'transform': transform,
         'width': width,
-        'height': height})
+        'height': height,
+        'dtype': np.int16})
 
-
-    new_dataset = rasterio.open(outName,'w',driver='Gtiff',height=new_metadata['height'],
-            width=new_metadata['width'],count=1,dtype=ndvi.dtype,crs=new_metadata['crs'],
-            transform=new_metadata['crs'])
-    reproject(source=ndvi,
+    #print(new_metadata['height'],dataset.height)
+    with rasterio.open(outName, 'w',**new_metadata) as new_dataset:
+        reproject(source=ndvi_scaled,
             destination=rasterio.band(new_dataset,1),
             src_transform=dataset.transform,
             src_crs=dataset.crs,
@@ -54,7 +56,7 @@ else:
 
     new_dataset.write(ndvi,1)
 
-new_dataset.close()
+    new_dataset.close()
 
 
 #plt.savefig('three_bands.png')
